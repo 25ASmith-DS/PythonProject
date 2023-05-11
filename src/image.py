@@ -1,11 +1,28 @@
+import pygame
+from src.math import inside_set
 
 
-def bmp_header(width, height):
-    magic_number = [0x42, 0x4D]  # 0
-    size = [0x00, 0x00, 0x00, 0x00]  # 2
-    padding = [0x00, 0x00]  # 6
-    padding2 = [0x00, 0x00]  # 8
-    image_data_ptr = [0x00, 0x00, 0x00, 0x00]  # 10
-    # 14b total
+def fragment(p, size, mouse, scale) -> pygame.color.Color:
+    width, height = size
+    ratio = width / height
 
-    raise magic_number + size + padding + padding2 + image_data_ptr
+    x, y = (
+        (p[0] / width - 0.5) * ratio,
+        p[1] / height - 0.5
+    )
+
+    x /= scale
+    y /= scale
+    x += mouse[0]
+    y += mouse[1]
+
+    black = pygame.Color(0, 0, 0)
+    white = pygame.Color(255, 255, 255)
+
+    xr = round(x, 2)
+    yr = round(y, 2)
+
+    if inside_set((x, y), 75):
+        return white
+    else:
+        return black

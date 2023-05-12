@@ -2,7 +2,7 @@ import pygame
 from src.math import inside_set
 
 
-def fragment(p, size, mouse, scale) -> pygame.color.Color:
+def fragment(p, size, mouse, scale, loops) -> pygame.color.Color:
     width, height = size
     ratio = width / height
 
@@ -19,10 +19,7 @@ def fragment(p, size, mouse, scale) -> pygame.color.Color:
     black = pygame.Color(0, 0, 0)
     white = pygame.Color(255, 255, 255)
 
-    xr = round(x, 2)
-    yr = round(y, 2)
-
-    if inside_set((x, y), 75):
+    if inside_set((x, y), loops):
         return white
     else:
         return black

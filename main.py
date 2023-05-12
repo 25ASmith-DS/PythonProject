@@ -16,8 +16,10 @@ window = pygame.display.set_mode((width, height))
 window.fill((255, 0, 0))
 pygame.display.flip()
 
+loops = 125
+
 for i, p in enumerate(points):
-    color = fragment(p, (width, height), (0.1, 0.6209), 200.0)
+    color = fragment(p, (width, height), (0.1, 0.6209), 200.0, loops)
     window.set_at(p, color)
     if p[0] == 0:
         pygame.display.flip()

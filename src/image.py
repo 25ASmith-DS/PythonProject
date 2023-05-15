@@ -1,15 +1,10 @@
 import pygame
-from src.math import inside_set
+from src.math import inside_set, screen_coords
 
 
 def fragment(p, size, mouse, scale, loops) -> pygame.color.Color:
-    width, height = size
-    ratio = width / height
 
-    x, y = (
-        (p[0] / width - 0.5) * ratio,
-        p[1] / height - 0.5
-    )
+    x, y = screen_coords(p[0], p[1], size)
 
     x /= scale
     y /= scale

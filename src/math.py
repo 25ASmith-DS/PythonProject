@@ -1,4 +1,10 @@
 
+def screen_coords(x, y, size):
+    width, height = size
+    ratio = width / height
+    return (x / width - 0.5) * ratio, y / height - 0.5
+
+
 def complex_square(a, b):
     return (a*a - b*b, 2.0*a*b)
 

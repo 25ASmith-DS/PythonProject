@@ -1,12 +1,28 @@
 
-def screen_coords(x, y, size):
+def screen_coords(p, size, scale, offset):
     width, height = size
     ratio = width / height
-    return (x / width - 0.5) * ratio, y / height - 0.5
+
+    x = (p[0] / width - 0.5) * ratio
+    y = p[1] / height - 0.5
+    x /= scale
+    y /= scale
+    x += offset[0]
+    y += offset[1]
+
+    return x, y
 
 
 def complex_square(a, b):
     return (a*a - b*b, 2.0*a*b)
+
+
+def cartesian_product(a, b):
+    l = []
+    for x in range(a):
+        for y in range(b):
+            l.append((a, b))
+    return l
 
 
 def inside_set(p, loops):

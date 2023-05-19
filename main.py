@@ -27,8 +27,7 @@ def generation_loop(window, points, camera, zoom, loops):
 
 points = gen_points(WIDTH, HEIGHT)
 
-# cam_x, cam_y = -0.745, 0.1
-# zoom = 800
+
 cam_x, cam_y = 0.0, 0.0
 zoom = 0.1
 loops = 125

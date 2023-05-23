@@ -18,11 +18,11 @@ def complex_square(a, b):
 
 
 def cartesian_product(a, b):
-    l = []
-    for x in range(a):
-        for y in range(b):
-            l.append((a, b))
-    return l
+    appendee = []
+    for x in b:
+        for y in a:
+            appendee.append((x, y))
+    return appendee
 
 
 def inside_set(p, loops):
